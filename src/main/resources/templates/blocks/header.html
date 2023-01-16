@@ -1,0 +1,56 @@
+<div th:fragment="header">
+    <a  href="/"><h3 class="float-md-start mb-0  text-white"><span style="color: #FF1919">Med</span>Invent</h3></a>
+    <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link active" aria-current="page" href="/">Главная</a>
+        <a class="nav-link" aria-current="page" href="/about">О проекте</a>
+        <a class="nav-link">
+            <a href="/login" class="btn btn-danger text-white" style="font-weight: bold; background: #FF1919; text-shadow: black 2px 0px 5px">Войти</a>
+        </a>
+    </nav>
+</div>
+
+<div th:fragment="header-about">
+    <a  href="/"><h3 class="float-md-start mb-0  text-white"><span style="color: #FF1919">Med</span>Invent</h3></a>
+    <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link" href="/">Главная</a>
+        <a class="nav-link active" aria-current="page" href="templates/task/about">О проекте</a>
+        <a class="nav-link">
+            <a href="/login" class="btn btn-danger text-white" style="font-weight: bold; background: #FF1919; text-shadow: black 2px 0px 5px">Войти</a>
+        </a>
+    </nav>
+</div>
+
+<nav th:fragment="header-into" class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="container">
+        <a class="d-flex navbar-brand" href="/personal">
+            <p class="m-0 p-0" style="color: #FF1919">Med<span style="color: white">Invent</span></p>
+        </a>
+        <ul class="navbar-nav  me-auto nav mx-4">
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/personal">Главная</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                    Дополнительно
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="/task">Поиск по наименованию</a></li>
+                    <li><a sec:authorize="hasAnyRole('ROLE_EDITOR')" class="dropdown-item" href="/task/observer">Для заведующего</a></li>
+                </ul>
+            </li>
+        </ul>
+        <a  href="/creatTask" class="btn btn-danger text-white" style="font-weight: bold; background: #FF1919; text-shadow: black 2px 0px 5px">Добавить оборудование</a>
+        <a sec:authorize="hasRole('ROLE_ADMIN')" class="ms-4" href="/setting" style="color: white"><i style="font-size: 1.8rem" class="bi bi-gear-wide-connected"></i></a>
+        <ul class="navbar-nav nav mx-3">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkUser" role="button"
+                   data-bs-toggle="dropdown" aria-expanded="false" th:text="${#authentication.name}">
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkUser">
+                    <li><a class="dropdown-item" href="/logout">Выход</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
