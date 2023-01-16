@@ -78,5 +78,7 @@ mvn spring-boot:run
  
 </table>
 
+  * Ссылка на вики https://github.com/DemidJo/java_kursach/wiki/MedInvent
+
 ## Автор
 Студент группы ИКПИ-01 Нефёдов Демид Ильич
